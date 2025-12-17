@@ -31,4 +31,18 @@ class PumpService implements PumpServiceInterface
         throw $e;
         }
     } 
+
+    public function deletePump($pumpId)
+    {
+        DB::beginTransaction();
+
+        try {
+            $this->pumpRepository->deletePump($pumpId);
+            DB::commit();
+            return true;
+        }catch (Exception $e) {
+        DB::rollBack();
+        throw $e;
+        }
+    }
 }

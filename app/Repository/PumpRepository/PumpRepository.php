@@ -11,4 +11,13 @@ class PumpRepository extends BaseRepository implements PumpRepositoryInterface
    {
        parent::__construct($model);
    }
+
+   public function deletePump($pumpId)
+   {
+       return $this->model->where('id', $pumpId)->update([
+        'is_active' => 0,
+        'is_deleted' => 1,
+        'deleted_at' => now()
+       ]);
+   }
 }
