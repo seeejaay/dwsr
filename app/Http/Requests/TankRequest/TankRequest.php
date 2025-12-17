@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\PumpRequest;
+namespace App\Http\Requests\TankRequest;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-class PumpRequest extends FormRequest
+class TankRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,8 +27,8 @@ class PumpRequest extends FormRequest
         $required = $isUpdate ? 'sometimes' : 'required';
         return [
             //
-            'name' => "{$required}|string|unique:pumps,name|regex:/^[a-zA-Z0-9\-\s]+$/",
-            'code' => "{$required}|string|unique:pumps,code|regex:/^[A-Z0-9_]+$/",
+            'name' => "{$required}|string|unique:tanks,name|regex:/^[a-zA-Z0-9\-\s]+$/",
+            'code' => "{$required}|string|unique:tanks,code|regex:/^[A-Z0-9_]+$/",
             // 'description'=> "{$required}|nullable|string|max:255",
         ];
     }

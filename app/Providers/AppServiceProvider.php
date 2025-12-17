@@ -14,6 +14,9 @@ use App\Services\UserService\UserServiceInterface;
 use App\Services\PumpService\PumpService;
 use App\Services\PumpService\PumpServiceInterface;
 
+use App\Services\TankService\TankService;
+use App\Services\TankService\TankServiceInterface;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -33,5 +36,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(AuthServiceInterface::class, AuthService::class);
         $this->app->bind(UserServiceInterface::class, UserService::class);
         $this->app->bind(PumpServiceInterface::class, PumpService::class);
+        $this->app->bind(TankServiceInterface::class, TankService::class);
     }
 }

@@ -6,4 +6,6 @@ interface PumpServiceInterface
 {
 
     public function createPump(array $data);
+
+    public function deletePump($pumpId);
 }

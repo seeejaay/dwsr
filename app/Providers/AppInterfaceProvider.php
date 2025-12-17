@@ -13,6 +13,9 @@ use App\Repository\UserRepository\UserRepositoryInterface;
 use App\Repository\PumpRepository\PumpRepository;
 use App\Repository\PumpRepository\PumpRepositoryInterface;
 
+use App\Repository\TankRepository\TankRepository;
+use App\Repository\TankRepository\TankRepositoryInterface;
+
 class AppInterfaceProvider extends ServiceProvider
 {
     /**
@@ -24,6 +27,8 @@ class AppInterfaceProvider extends ServiceProvider
         $this->app->bind(AuthRepositoryInterface::class, AuthRepository::class);
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(PumpRepositoryInterface::class, PumpRepository::class);
+        $this->app->bind(TankRepositoryInterface::class, TankRepository::class);
+
     }
 
     /**
