@@ -25,10 +25,9 @@ class UserController extends Controller {
                 'data' => UserResource::collection($users)
             ], 200);
         } catch (Exception $e) {
-            $statusCode = $e->getCode() ?: 500;
             return response()->json([
                 'message' => $e->getMessage()
-            ], $statusCode);
+            ], 500);
         }
     }
 
