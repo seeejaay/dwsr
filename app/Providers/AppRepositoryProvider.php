@@ -25,7 +25,7 @@ use App\Repository\VarianceRepository\VarianceRepositoryInterface;
 use App\Repository\AdjustmentCategoryRepository\AdjustmentCategoryRepository;
 use App\Repository\AdjustmentCategoryRepository\AdjustmentCategoryRepositoryInterface;
 
-class AppInterfaceProvider extends ServiceProvider
+class AppRepositoryProvider extends ServiceProvider
 {
     /**
      * Register any application services.
