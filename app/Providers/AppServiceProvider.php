@@ -17,9 +17,11 @@ use App\Services\PumpService\PumpServiceInterface;
 use App\Services\TankService\TankService;
 use App\Services\TankService\TankServiceInterface;
 
-
 use App\Services\TaxTypeService\TaxTypeService;
 use App\Services\TaxTypeService\TaxTypeServiceInterface;
+
+use App\Services\VarianceService\VarianceService;
+use App\Services\VarianceService\VarianceServiceInterface;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -41,5 +43,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(PumpServiceInterface::class, PumpService::class);
         $this->app->bind(TankServiceInterface::class, TankService::class);
         $this->app->bind(TaxTypeServiceInterface::class, TaxTypeService::class);
+        $this->app->bind(VarianceServiceInterface::class, VarianceService::class);
     }
 }

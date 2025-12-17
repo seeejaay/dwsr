@@ -19,6 +19,9 @@ use App\Repository\TankRepository\TankRepositoryInterface;
 use App\Repository\TaxTypeRepository\TaxTypeRepository;
 use App\Repository\TaxTypeRepository\TaxTypeRepositoryInterface;
 
+use App\Repository\VarianceRepository\VarianceRepository;
+use App\Repository\VarianceRepository\VarianceRepositoryInterface;
+
 class AppInterfaceProvider extends ServiceProvider
 {
     /**
@@ -32,6 +35,7 @@ class AppInterfaceProvider extends ServiceProvider
         $this->app->bind(PumpRepositoryInterface::class, PumpRepository::class);
         $this->app->bind(TankRepositoryInterface::class, TankRepository::class);
         $this->app->bind(TaxTypeRepositoryInterface::class, TaxTypeRepository::class);
+        $this->app->bind(VarianceRepositoryInterface::class, VarianceRepository::class);
 
     }
 
