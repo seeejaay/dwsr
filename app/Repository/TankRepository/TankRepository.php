@@ -4,12 +4,13 @@ namespace App\Repository\TankRepository;
 
 use App\Repository\BaseRepository\BaseRepository;
 use App\Repository\TankRepository\TankRepositoryInterface;
+use Illuminate\Database\Eloquent\Model;
 
 class TankRepository extends BaseRepository implements TankRepositoryInterface
 {
     protected $model;
 
-    public function __construct(\App\Models\Tank $model)
+    public function __construct(Model $model)
     {
         parent::__construct($model);
     }
