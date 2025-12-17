@@ -22,6 +22,9 @@ use App\Services\TaxTypeService\TaxTypeServiceInterface;
 
 use App\Services\VarianceService\VarianceService;
 use App\Services\VarianceService\VarianceServiceInterface;
+
+use App\Services\AdjustmentCategoryService\AdjustmentCategoryService;
+use App\Services\AdjustmentCategoryService\AdjustmentCategoryServiceInterface;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -44,5 +47,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(TankServiceInterface::class, TankService::class);
         $this->app->bind(TaxTypeServiceInterface::class, TaxTypeService::class);
         $this->app->bind(VarianceServiceInterface::class, VarianceService::class);
+        $this->app->bind(AdjustmentCategoryServiceInterface::class, AdjustmentCategoryService::class);
     }
 }
