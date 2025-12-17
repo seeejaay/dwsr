@@ -28,11 +28,11 @@ class AuthRequest extends FormRequest
             'email' => 'required_without:username|email',
             'username' => 'required_without:email|string',
             'password' => 'required|string',
+            
 
         ];
     }
-
-    public function failedValidation(Validator $validator)
+   public function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response()->json([
             'message' => 'Validation Failed',

@@ -8,6 +8,9 @@ use Illuminate\Support\ServiceProvider;
 use App\Services\AuthService\AuthService;
 use App\Services\AuthService\AuthServiceInterface;
 
+use App\Services\UserService\UserService;
+use App\Services\UserService\UserServiceInterface;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -25,5 +28,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         $this->app->bind(AuthServiceInterface::class, AuthService::class);
+        $this->app->bind(UserServiceInterface::class, UserService::class);
     }
 }

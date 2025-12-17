@@ -15,7 +15,7 @@ class AuthService implements AuthServiceInterface
         $this->authRepository = $authRepository;
     }
 
-   public function login(array $credentials)
+    public function login(array $credentials)
     {
         if (isset($credentials['email'])) {
             $user = $this->authRepository->findByEmail($credentials['email']);
