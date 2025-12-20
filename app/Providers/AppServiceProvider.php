@@ -28,6 +28,10 @@ use App\Services\AdjustmentCategoryService\AdjustmentCategoryServiceInterface;
 
 use App\Services\RoleService\RoleService;
 use App\Services\RoleService\RoleServiceInterface;
+
+use App\Services\SiteService\SiteService;
+use App\Services\SiteService\SiteServiceInterface;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -52,5 +56,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(VarianceServiceInterface::class, VarianceService::class);
         $this->app->bind(AdjustmentCategoryServiceInterface::class, AdjustmentCategoryService::class);
         $this->app->bind(RoleServiceInterface::class, RoleService::class);
+        $this->app->bind(SiteServiceInterface::class, SiteService::class);
     }
 }

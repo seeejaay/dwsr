@@ -27,6 +27,9 @@ use App\Repository\AdjustmentCategoryRepository\AdjustmentCategoryRepositoryInte
 
 use App\Repository\RoleRepository\RoleRepository;
 use App\Repository\RoleRepository\RoleRepositoryInterface;
+
+use App\Repository\SiteRepository\SiteRepository;
+use App\Repository\SiteRepository\SiteRepositoryInterface;
 class AppRepositoryProvider extends ServiceProvider
 {
     /**
@@ -43,6 +46,7 @@ class AppRepositoryProvider extends ServiceProvider
         $this->app->bind(VarianceRepositoryInterface::class, VarianceRepository::class);
         $this->app->bind(AdjustmentCategoryRepositoryInterface::class, AdjustmentCategoryRepository::class);
         $this->app->bind(RoleRepositoryInterface::class, RoleRepository::class);
+        $this->app->bind(SiteRepositoryInterface::class, SiteRepository::class);
     }
 
     /**
