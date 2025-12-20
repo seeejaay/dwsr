@@ -30,6 +30,9 @@ use App\Repository\RoleRepository\RoleRepositoryInterface;
 
 use App\Repository\SiteRepository\SiteRepository;
 use App\Repository\SiteRepository\SiteRepositoryInterface;
+
+use App\Repository\ProductRepository\ProductRepository;
+use App\Repository\ProductRepository\ProductRepositoryInterface;
 class AppRepositoryProvider extends ServiceProvider
 {
     /**
@@ -47,6 +50,7 @@ class AppRepositoryProvider extends ServiceProvider
         $this->app->bind(AdjustmentCategoryRepositoryInterface::class, AdjustmentCategoryRepository::class);
         $this->app->bind(RoleRepositoryInterface::class, RoleRepository::class);
         $this->app->bind(SiteRepositoryInterface::class, SiteRepository::class);
+        $this->app->bind(ProductRepositoryInterface::class, ProductRepository::class);
     }
 
     /**

@@ -32,6 +32,9 @@ use App\Services\RoleService\RoleServiceInterface;
 use App\Services\SiteService\SiteService;
 use App\Services\SiteService\SiteServiceInterface;
 
+use App\Services\ProductService\ProductService;
+use App\Services\ProductService\ProductServiceInterface;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -57,5 +60,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(AdjustmentCategoryServiceInterface::class, AdjustmentCategoryService::class);
         $this->app->bind(RoleServiceInterface::class, RoleService::class);
         $this->app->bind(SiteServiceInterface::class, SiteService::class);
+        $this->app->bind(ProductServiceInterface::class, ProductService::class);
     }
 }
