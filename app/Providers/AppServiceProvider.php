@@ -25,6 +25,9 @@ use App\Services\VarianceService\VarianceServiceInterface;
 
 use App\Services\AdjustmentCategoryService\AdjustmentCategoryService;
 use App\Services\AdjustmentCategoryService\AdjustmentCategoryServiceInterface;
+
+use App\Services\RoleService\RoleService;
+use App\Services\RoleService\RoleServiceInterface;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -48,5 +51,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(TaxTypeServiceInterface::class, TaxTypeService::class);
         $this->app->bind(VarianceServiceInterface::class, VarianceService::class);
         $this->app->bind(AdjustmentCategoryServiceInterface::class, AdjustmentCategoryService::class);
+        $this->app->bind(RoleServiceInterface::class, RoleService::class);
     }
 }
