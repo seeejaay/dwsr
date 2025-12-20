@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AdjustmentCategory extends Model
+class AdjustmentCategory extends BaseModel
 {
     //
     public $incrementing = false; // UUIDs are not auto-incrementing

@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use Faker\Provider\Base;
 use Illuminate\Database\Eloquent\Model;
 
-class Pump extends Model
+class Pump extends BaseModel
 {
     //
     public $incrementing = false; // UUIDs are not auto-incrementing

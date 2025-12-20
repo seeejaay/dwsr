@@ -57,10 +57,9 @@ class ProductController extends Controller{
                 'data' => new ProductResource($product)
             ], 200);
         } catch (Exception $e) {
-            $statusCode = $e->getCode() ?: 500;
             return response()->json([
                 'message' => $e->getMessage()
-            ], $statusCode);
+            ], 500);
         }
     }
 
@@ -72,10 +71,9 @@ class ProductController extends Controller{
                 'data' => new ProductResource($product)
             ], 200);
         } catch (Exception $e) {
-            $statusCode = $e->getCode() ?: 500;
             return response()->json([
                 'message' => $e->getMessage()
-            ], $statusCode);
+            ], 500);
         }
     }
 
@@ -86,10 +84,9 @@ class ProductController extends Controller{
                 'message' => 'Product deleted successfully'
             ], 200);
         } catch (Exception $e) {
-            $statusCode = $e->getCode() ?: 500;
             return response()->json([
                 'message' => $e->getMessage()
-            ], $statusCode);
+            ], 500);
         }
     }
 

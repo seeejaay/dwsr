@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-class Site extends Model
+class Site extends BaseModel
 {
     //
     public $incrementing = false; // UUIDs are not auto-incrementing
