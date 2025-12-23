@@ -13,7 +13,7 @@ class SendInventoryRemminderEmail extends Command
      *
      * @var string
      */
-    protected $signature = 'app:send-inventory-remminder-email';
+    protected $signature = 'commands:send-inventory-remminder-email';
 
     /**
      * The console command description.
