@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Exception;
+use App\Exports\UsersExport;
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\UserRequest\UserRequest;
 use App\Http\Resources\UserResource\UserResource;
 use App\Services\UserService\UserServiceInterface;
@@ -53,10 +56,9 @@ class UserController extends Controller {
                 'data' => new UserResource($user)
             ], 200);
         } catch (Exception $e) {
-            $statusCode = $e->getCode() ?: 500;
             return response()->json([
                 'message' => $e->getMessage()
-            ], $statusCode);
+            ], 500);
         }
     }
 
@@ -68,10 +70,9 @@ class UserController extends Controller {
                 'data' => new UserResource($user)
             ], 200);
         } catch (Exception $e) {
-            $statusCode = $e->getCode() ?: 500;
             return response()->json([
                 'message' => $e->getMessage()
-            ], $statusCode);
+            ], 500);
         }
     }
 
@@ -82,10 +83,9 @@ class UserController extends Controller {
                 'message' => 'User deleted successfully'
             ], 200);
         } catch (Exception $e) {
-            $statusCode = $e->getCode() ?: 500;
             return response()->json([
                 'message' => $e->getMessage()
-            ], $statusCode);
+            ], 500);
         }
     }
 
@@ -97,10 +97,26 @@ class UserController extends Controller {
                 'data' => new UserResource($user)
             ], 200);
         } catch (Exception $e) {
-            $statusCode = $e->getCode() ?: 500;
             return response()->json([
                 'message' => $e->getMessage()
-            ], $statusCode);
+            ], 500);
         }
+    }
+
+    public function export(Request $request)
+    {
+        try {
+
+            $startDate = $request->input('start_date');
+            $endDate = $request->input('end_date');
+            $users = $this->userRepository->getAllForExport($startDate, $endDate);
+            
+            return Excel::download(new UsersExport($users), 'users-' . now()->format('Y-m-d') . '.xlsx');
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => $e->getMessage()
+            ], 500);
+        }
+
     }
 }
