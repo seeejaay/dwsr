@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Exception;
+use Illuminate\Http\Request;
+use App\Exports\SitesExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\SiteRequest\SiteRequest;
 use App\Http\Resources\SiteResource\SiteResource;
 use App\Services\SiteService\SiteServiceInterface;
@@ -84,6 +87,27 @@ class SiteController extends Controller {
             return response()->json([
                 'message' => $e->getMessage()
             ], $statusCode);
+        }
+    }
+
+  public function export(Request $request)
+    {
+        try {
+            $startDate = $request->input('start_date');
+            $endDate = $request->input('end_date');
+            $sites = $this->siteRepository->getAllSiteDetailsForExport($startDate, $endDate);
+
+
+            $startLabel = str_replace(' ', '', date('F Y', strtotime($startDate))); 
+            $endLabel = str_replace(' ', '', date('F Y', strtotime($endDate)));     
+
+            $fileName = "sites_export_{$startLabel}_{$endLabel}.xlsx";
+
+            return Excel::download(new SitesExport($sites), $fileName);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => $e->getMessage()
+            ], 500);
         }
     }
 }
